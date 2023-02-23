@@ -1,0 +1,240 @@
+{% load compress %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diamond Horizon Bank - Contact Us</title>
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'src/output.css' %}">
+    <link rel="icon" href="{% static 'assets/diamond - cropped (2).png' %}" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    {% endcompress %}
+</head>
+<body>
+    <!-- navbar -->
+    <style>
+        body {
+            overflow-x: hidden !important;
+        }
+    </style>
+    <div class="flex justify-between items-center w-full bg-[#30a52e]">
+        <nav class="hidden lg:flex justify-between items-center px-5 xl:w-full">
+            <div class="left xl:mr-80">
+                <ul class="flex items-center">
+                    <li class="lg:text-[1.2rem] p-2 border-r-[1px] border-[#383838] border-solid">
+                        <a href="">
+                            <img  class="md:w-[150px] " src=" {% static 'assets/diamond-on-dark.png' %}" height="26" alt="app-logo">
+                        </a>
+                    </li>
+                    <!-- <li class="text-white lg:text-[1rem] p-2 py-6 hover:border-b-2 border-solid border-yellow-300"><a href="">Personal</a></li>
+                    <li class="text-white lg:text-[1rem] p-2 py-6 hover:border-b-2 border-solid border-yellow-300"><a href="">Corporate</a></li> -->
+                </ul>
+            </div>
+            <div class="div">
+                <ul class="flex">
+                    <li class="text-white lg:text-[1rem] p-2 py-6 hover:border-b-2 border-solid border-yellow-300"><a href="{% url 'about' %}">About Us</a></li>
+                    <li class="text-white lg:text-[1rem] p-2 py-6 hover:border-b-2 border-solid border-yellow-300"><a href="{% url 'contact' %}">Contact Us</a></li>
+                    <a href="{% url 'signup' %}">
+                        <li class="transition-all duration-500 ease-in-out text-white bg-[#016076] rounded-lg px-4 lg:text-[1rem] p-2 my-5 hover:text-[#016076] hover:bg-white cursor-pointer">Sign Up</a>
+                    </a>
+                    <a href="{% url 'login' %}">
+                        <li class="transition-all duration-500 ease-in-out text-white lg:text-[1rem] p-2 my-5 hover:bg-[#f50404] rounded-lg mx-4 px-5 cursor-pointer">Login</li>
+                    </a>
+                    
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+
+     <!-- Mobile Menu -->
+
+     <nav class="px-12 py-4 flex justify-between items-center bg-[#30a52e] lg:hidden">
+        <img class="w-[160px] h-[53px] border-r-[1px] border-solid border-gray-400" src="{% static 'assets/diamond-on-dark.png' %}" alt="">
+        <span onclick="document.querySelector('.mobile__nav').classList.remove('hidden')" class="open__nav hover:cursor-pointer text-white text-xl">Menu</span>
+    </nav>
+
+     <!-- Menu  -->
+
+     <div class="mobile__nav hidden w-full h-screen bg-[#02060952] fixed top-0 bottom-0 left-0 right-0">
+        <div class="w-[90%] sm:w-[70%] md:w-[50%] fixed top-0 right-0 h-screen bg-white">
+            <div class="relative w-full h-full">
+                <div class="w-full max-w-[86rem] mx-auto">
+                    <div class="flex justify-between items-center p-5">
+                        <img class="w-[129px]" src="{% static 'assets/diamond-on-dark.png' %}" alt="">
+                        <img onclick="document.querySelector('.mobile__nav').classList.add('hidden')" id="close" class="w-[15px] h-[15px] hover:cursor-pointer" src="{% static 'assets/close.png' %}" alt="">
+                    </div>
+                    <div class="mt-11 flex flex-col items-start gap-6">
+                        <span><a class="border-l-[10px] px-3 py-4 hover:border-[#016076] border-solid" href="#">Business</a></span>
+                        <span><a class="border-l-[10px] px-3 py-4 hover:border-[#016076] border-solid" href="#">Personal</a></span>
+                    </div>
+                    <div class="mx-10 mt-12 w-full">
+                       <hr>
+                    <!-- <div class="w-full mt-11 flex flex-col items-start gap-6"> -->
+                        <span class="block"><a class="inline-block w-full border-b-[1px] border-solid border-[rgba(195,200,207,.4)] px-3 py-4" href="#">About Us</a></span>
+                        <span class="block"><a class="inline-block w-full border-b-[1px] border-solid border-[rgba(195,200,207,.4)] lg:px-3 py-4 text-[1.2rem] text-[#112231]" href="#">Contacts</a></span>
+                    <!-- </div> -->
+                        <button class="hover:opacity-[0.8] mb-5 md:mb-0 rounded-md bg-[#016076] text-white font-bold py-3 block px-20 mt-6 lg:mb-4 xl:mb-0 lg:text-lg"><a href="#">Login</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Container for demo purpose -->
+<div class="container my-24 px-6 mx-auto">
+
+    <!-- Section: Design Block -->
+    <section class="mb-32 text-gray-800 text-center">
+      <style>
+        .map-container {
+          height: 700px;
+          z-index: -1;
+        }
+      </style>
+      <div class="px-6 py-12 md:px-12">
+        <div class="container mx-auto xl:px-32">
+          <div class="grid lg:grid-cols-2 flex items-center">
+            <div class="md:mt-12 lg:mt-0 mb-12 lg:mb-0">
+              <div
+                class="block rounded-lg shadow-lg px-6 py-12 md:px-12 lg:-mr-14"
+                style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)"
+              >
+              <h2 class="text-3xl font-bold mb-12">Contact us</h2>
+              <form>
+                <div class="form-group mb-6">
+                  <input
+                    type="text"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="exampleInput7"
+                    placeholder="Name"
+                  />
+                </div>
+                <div class="form-group mb-6">
+                  <input
+                    type="email"
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="exampleInput8"
+                    placeholder="Email address"
+                  />
+                </div>
+                <div class="form-group mb-6">
+                  <textarea
+                    class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                    id="exampleFormControlTextarea13"
+                    rows="3"
+                    placeholder="Message"
+                  ></textarea>
+                </div>
+                <div class="form-group form-check text-center mb-6">
+                  <input
+                    type="checkbox"
+                    class="form-check-input appearance-none h-4 w-4 border border-gray-300 rounded-sm bg-white checked:bg-blue-600 checked:border-blue-600 focus:outline-none transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain mr-2 cursor-pointer"
+                    id="exampleCheck87"
+                    checked
+                  />
+                  <label class="form-check-label inline-block text-gray-800" for="exampleCheck87"
+                    >Send me a copy of this message</label
+                  >
+                </div>
+                <button
+                  type="submit"
+                  class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+                >
+                  Send
+                </button>
+              </form>
+              </div>
+            </div>
+            <div class="md:mb-12 lg:mb-0">
+              <div class="map-container relative shadow-lg rounded-lg">
+                <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" class="left-0 top-0 h-full w-full absolute rounded-lg" frameborder="0" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Section: Design Block -->
+  
+  </div>
+  <!-- Container for demo purpose -->
+
+
+  <!-- footer -->
+  <section class="px-20 flex flex-col justify-center items-center w-full">
+    <div class="bg-[#FF4B44] rounded-[3rem] w-[100vw] p-12">
+        <h3 class="font-bold text-2xl my-3 text-center text-white">Help us build the kind of bank you want to use</h3>
+        <p class="font-bold text-2xl my-3 text-center text-white">Download the Diamond Horizon app on iOS or Android and join more than 6 million people who've changed the way they bank.</p>
+        <div class="flex items-center justify-center mt-3 mb-12 flex-wrap">
+            <img class="w-[150px] h-[50px]" src="{% static 'assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg' %}" alt="ios app store logog">
+            <img class="w-[191px] h-[73px]" src="{% static 'assets/google-play-badge.png' %}" alt="google play">
+        </div>
+    </div>
+</section>
+
+<footer class="bg-[#30a52e] mt-[-2rem] pt-[5rem] flex flex-col w-full">
+    <div class="px-6 flex flex-col md:flex-row justify-between items-start">
+        <div class="footer__top">
+            <div class="top__left">
+                <img class="w-[13rem]" src="{% static 'assets/diamond-on-dark.png' %}" alt="">
+                <div class="flex flex-wrap ml-5 md:ml-0">
+                    <ul class="lg:ml-4 lg:w-[12rem]">
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">About us</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Diamond Us</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Blog</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Press</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Careers</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Our social programme</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Accessibility</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Lost your phone and card?</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Investor Information</a></li>
+                    </ul>
+                    <ul class="lg:ml-11 lg:w-[12rem]">
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Supporting all our customers</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">How we can support with money worries</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Helping everyone belong at Diamond Horizon</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Coronavirus information</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">How we protect you</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Our tone of voice</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Business Accounts</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Modern Slavery</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">FAQ</a></li>
+                    </ul>
+                    <ul class="lg:ml-11 lg:w-[12rem]">
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Cookie</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Browser Support Policy</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Mobile Operating System Support Policy</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">Information about our Personal Current Account Services</a></li>
+                        <li class="my-4"><a class="hover:text-yellow-300 text-white" href="{% url 'login' %}">App and Open Banking Performance</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer__bottom">
+            <div class="flex items-center justify-center mt-3 mb-12 flex-wrap">
+                <img class="w-[150px] h-[50px]" src="{% static 'assets/Download_on_the_App_Store_Badge_US-UK_RGB_blk_092917.svg' %}" alt="ios app store logog">
+                <img class="w-[191px] h-[73px]" src="{% static 'assets/google-play-badge.png' %}" alt="google play">
+            </div>
+            <div class="flex flex-wrap">
+                <span class="p-3 rounded-xl hover:cursor-pointer mx-2 bg-[#27404B] hover:bg-[#016076]"><img class="w-5" src="{% static 'assets/social/twitter.svg' %}" alt=""></span>
+                <span class="p-3 rounded-xl hover:cursor-pointer mx-2 bg-[#27404B] hover:bg-[#016076]"><img class="w-5" src="{% static 'assets/social/instagram.svg' %}" alt=""></span>
+                <span class="p-3 rounded-xl hover:cursor-pointer mx-2 bg-[#27404B] hover:bg-[#016076]"><img class="w-5" src="{% static 'assets/social/facebook.svg' %}" alt=""></span>
+                <span class="p-3 rounded-xl hover:cursor-pointer mx-2 bg-[#27404B] hover:bg-[#016076]"><img class="w-5" src="{% static 'assets/social/linkedin.svg' %}" alt=""></span>
+                <span class="p-3 rounded-xl hover:cursor-pointer mx-2 bg-[#27404B] hover:bg-[#016076]"><img class="w-5" src="{% static 'assets/social/youtube.svg' %}" alt=""></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="px-6 py-20 bg-[#112231] mt-24">
+        <h2 class="text-white mb-5 text-xl">Existing customers can get help via the app</h2>
+        <p class="footer__text text-white max-w-[60rem] font-thin">Diamond Horizon Bank Limited is a company registered in England and Wales (No. 09446231). Diamond Horizon Bank Ltd is authorised by the Prudential Regulation Authority (PRA) and regulated by the Financial Conduct Authority and the Prudential Regulation Authority. Our Financial Services Register number is 730427.</p>
+    </div>
+</footer>
+</body>
+</html>
