@@ -5,7 +5,6 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 # Create your views here.
 
-
 def login_view(request):
     if request.user.is_authenticated:
         return redirect('dashboard')
@@ -42,7 +41,6 @@ def signup(request):
                         logout(request)
                     login(request, user)
                 messages.success(request, f"User was successfully created. Please log in. ")
-
                 return redirect('dashboard')
 				
             messages.error(request, f"Unable to create account")
