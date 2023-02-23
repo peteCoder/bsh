@@ -41,11 +41,11 @@ def signup(request):
                     if request.user.is_authenticated:
                         logout(request)
                     login(request, user)
-                messages.success(request, f"User {username} was successfully created. You are logged in as {username}. ")
+                messages.success(request, f"User was successfully created. Please log in. ")
 
                 return redirect('dashboard')
 				
-            messages.error(request, f"User account unable to create ")
+            messages.error(request, f"Unable to create account")
         else:
             form = forms.UserFormCreate()
     else:

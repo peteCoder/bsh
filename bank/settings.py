@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from decouple import config
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,6 +29,8 @@ SECRET_KEY = 'django-insecure-6zp7rhjehe)ca+=-^zl#%^!ylu&51ghatfayk@^u3)1-4&vk2(
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+# CSRF_TRUSTED_ORIGINS = ['https://web-production-93c3.up.railway.app']
 
 
 # Application definition
@@ -48,9 +52,14 @@ INSTALLED_APPS = [
     'api',
 ]
 
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    
+    'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise
+    
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -75,6 +84,18 @@ TEMPLATES = [
         },
     },
 ]
+
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUDINARY_STORAGE_CLOUD_NAME'),
+    'API_KEY': config('CLOUDINARY_STORAGE_API_KEY'),
+    'API_SECRET': config('CLOUDINARY_STORAGE_API_SECRET')
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+
+
 
 AUTH_USER_MODEL = 'accounts.User'
 
@@ -128,14 +149,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
+COMPRESS_ROOT = BASE_DIR / 'static'
 
+COMPRESS_ENABLED = True
+
+STATICFILES_FINDERS = ('compressor.finders.CompressorFinder',)
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATIC_URL = '/static/'
-
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static') 
